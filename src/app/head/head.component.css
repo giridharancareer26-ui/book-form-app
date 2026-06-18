@@ -1,0 +1,16 @@
+.navbar {
+  background: #222;
+  padding: 10px;
+}
+
+.nav-tabs li {
+  display: flex;
+  margin-right: 20px;
+}
+.nav-tabs a {
+  color: #fff;
+  text-decoration: none;
+}
+.nav-tabs a:hover {
+  color: #ffd166;
+}
