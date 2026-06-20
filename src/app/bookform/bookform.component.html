@@ -1,1 +1,31 @@
 <p>bookform works!</p>
+<div class="container">
+  <h1>Book-Form</h1>
+  <div>
+    <span>Book Id: {{ book.bookId + 1 }}</span>
+  </div>
+  <div>
+    <span>Book Title:</span> &nbsp;
+    <input type="text" [(ngModel)]="book.title" />
+    <span>Updated title:{{ book.title }}</span>
+  </div>
+  <div>
+    <span>Book Author:</span> &nbsp;
+    <input type="text" [(ngModel)]="book.author" />
+  </div>
+  <div>
+    <span>Category:</span> &nbsp;
+    <input type="text" [(ngModel)]="book.category" />
+  </div>
+  <div>
+    <span>Price:</span> &nbsp;
+    <input type="text" [(ngModel)]="book.price" />
+  </div>
+  <div>
+    <span>Published on:</span> &nbsp;<input
+      type="text"
+      [(ngModel)]="book.publishedDate"
+    />
+  </div>
+  <button (click)="saveBook()">Save Book</button>
+</div>
