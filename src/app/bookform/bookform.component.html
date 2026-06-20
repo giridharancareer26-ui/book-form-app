@@ -7,7 +7,6 @@
   <div>
     <span>Book Title:</span> &nbsp;
     <input type="text" [(ngModel)]="book.title" />
-    <span>Updated title:{{ book.title }}</span>
   </div>
   <div>
     <span>Book Author:</span> &nbsp;
@@ -19,7 +18,7 @@
   </div>
   <div>
     <span>Price:</span> &nbsp;
-    <input type="text" [(ngModel)]="book.price" />
+    <input type="number" [(ngModel)]="book.price" />
   </div>
   <div>
     <span>Published on:</span> &nbsp;<input
@@ -27,5 +26,14 @@
       [(ngModel)]="book.publishedDate"
     />
   </div>
-  <button (click)="saveBook()">Save Book</button>
+  <div><button (click)="saveBook()">Save Book</button></div>
+  <div>
+    <h3>Preview</h3>
+    <p>Book ID: {{ book.bookId }}</p>
+    <p>Title: {{ book.title }}</p>
+    <p>Author: {{ book.author }}</p>
+    <p>Category: {{ book.category }}</p>
+    <p>Price: {{ book.price }}</p>
+    <p>Published oN:{{ book.publishedDate }}</p>
+  </div>
 </div>

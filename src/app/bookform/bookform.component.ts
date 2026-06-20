@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BOOK_DATA } from '../data/book-data';
 import { FormsModule } from '@angular/forms';
+import { Book } from '../models/book';
 
 @Component({
   selector: 'app-bookform',
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './bookform.component.css',
 })
 export class BookformComponent {
-  book = BOOK_DATA[0];
+  book: Book = BOOK_DATA[0];
   saveBook() {
     // this.book = BOOK_DATA[BOOK_DATA.length + 1];
     // this.book.bookId = BOOK_DATA.length + 1;
@@ -18,6 +19,6 @@ export class BookformComponent {
     // this.book.category = this.book.category;
     // this.book.price = this.book.price;
     // this.book.publishedDate = this.book.publishedDate;
-    console.log('Book Saved');
+    console.log('Book Saved', this.book);
   }
 }
