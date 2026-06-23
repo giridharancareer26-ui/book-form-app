@@ -2,38 +2,38 @@
 <div class="container">
   <h1>Book-Form</h1>
   <div>
-    <span>Book Id: {{ book.bookId + 1 }}</span>
+    <span>Book Id: {{ formBook.bookId }}</span>
   </div>
   <div>
     <span>Book Title:</span> &nbsp;
-    <input type="text" [(ngModel)]="book.title" />
+    <input type="text" [(ngModel)]="formBook.title" />
   </div>
   <div>
     <span>Book Author:</span> &nbsp;
-    <input type="text" [(ngModel)]="book.author" />
+    <input type="text" [(ngModel)]="formBook.author" />
   </div>
   <div>
     <span>Category:</span> &nbsp;
-    <input type="text" [(ngModel)]="book.category" />
+    <input type="text" [(ngModel)]="formBook.category" />
   </div>
   <div>
     <span>Price:</span> &nbsp;
-    <input type="number" [(ngModel)]="book.price" />
+    <input type="number" [(ngModel)]="formBook.price" />
   </div>
   <div>
     <span>Published on:</span> &nbsp;<input
       type="text"
-      [(ngModel)]="book.publishedDate"
+      [(ngModel)]="formBook.publishedDate"
     />
   </div>
   <div><button (click)="saveBook()">Save Book</button></div>
-  <div>
-    <h3>Preview</h3>
-    <p>Book ID: {{ book.bookId }}</p>
-    <p>Title: {{ book.title }}</p>
-    <p>Author: {{ book.author }}</p>
-    <p>Category: {{ book.category }}</p>
-    <p>Price: {{ book.price }}</p>
-    <p>Published oN:{{ book.publishedDate }}</p>
-  </div>
+  <h3>Preview</h3>
+  <ul *ngIf="books.length > 0; else noBooks">
+    <li *ngFor="let book of books">
+      {{ book.bookId }} - {{ book.title }} - {{ book.author }}
+    </li>
+  </ul>
+  <ng-template #noBooks>
+    <h6>No Books Available.</h6>
+  </ng-template>
 </div>

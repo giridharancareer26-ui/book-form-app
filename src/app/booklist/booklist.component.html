@@ -1,1 +1,10 @@
-<p>booklist works!</p>
+<H2>List of Books</H2>
+<div *ngIf="displayBooks.length > 0; else noBooks">
+  <div *ngFor="let book of displayBooks">
+    Author:{{ book.author }} <br />
+    BookName: {{ book.title }}<br />
+    Price: {{ book.price }}<br /><br />
+  </div>
+</div>
+
+<ng-template #noBooks> <p>No Books Found.</p> </ng-template>
