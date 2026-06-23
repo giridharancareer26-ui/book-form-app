@@ -7,6 +7,7 @@ import { Book } from '../models/book';
 })
 export class BookService {
   books: Book[] = BOOK_DATA;
+  selectedBook: Book | null = null;
 
   getbooks(): Book[] {
     return this.books;
@@ -14,5 +15,12 @@ export class BookService {
 
   addBook(book: Book) {
     this.books.push(book);
+  }
+  setSelectedBook(book: Book) {
+    this.selectedBook = { ...book };
+  }
+
+  getSelectedBook(): Book | null {
+    return this.selectedBook;
   }
 }

@@ -13,12 +13,6 @@ import { BookService } from '../services/book.service';
 })
 export class BookformComponent {
   books: Book[] = [];
-
-  constructor(private booksService: BookService) {}
-  ngOnInit() {
-    this.books = this.booksService.getbooks();
-    this.formBook.bookId = this.books.length + 1;
-  }
   formBook: Book = {
     bookId: 0,
     title: '',
@@ -28,17 +22,40 @@ export class BookformComponent {
     publishedDate: '',
   };
 
+  constructor(private booksService: BookService) {}
+
+  ngOnInit() {
+    this.books = this.booksService.getbooks();
+    this.formBook.bookId = this.books.length + 1;
+
+    const selected = this.booksService.getSelectedBook();
+    if (selected) {
+      this.formBook = { ...selected };
+    } else {
+      this.resetForm();
+    }
+  }
+
   saveBook() {
     this.booksService.addBook(this.formBook);
     console.log('Book saved:', this.formBook);
+    this.resetForm();
+    console.log('Updated book list:', this.books);
+  }
+
+  private resetForm() {
+    const nextId =
+      this.books.length > 0
+        ? Math.max(...this.books.map((b) => b.bookId)) + 1
+        : 1;
+
     this.formBook = {
-      bookId: this.books.length + 1,
+      bookId: nextId,
       title: '',
       author: '',
       category: '',
       price: 0,
       publishedDate: '',
     };
-    console.log('Updated book list:', this.books);
   }
 }
